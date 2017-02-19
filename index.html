@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title></title>
+	<link rel="stylesheet" href="libs/bootstrap.min.css">
+	<link rel="stylesheet" href="css/mystyle.css">
+	<script src="libs/jquery-3.1.1.min.js"></script>
+	<script src="libs/bootstrap.min.js"></script>
+	<script src="libs/jquery.blurr.js"></script>
+	<script src="libs/angular.min.js"></script>
+</head>
+<body data-spy="scroll" data-target="#navbar-example" id="aaa">
+
+	<nav class="navbar navbar-inverse navbar-fixed-top mynavbar" id="navbar-example">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand mylogo"><img src="img/logo.png" alt="" id="bbb"></a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="#top"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+					<li><a href="#green"><span class="glyphicon glyphicon-list"></span> 关于我</a></li>
+					<li><a href="#yellow"><span class="glyphicon glyphicon-fire"></span> 技能</a></li>
+					<li><a href="#black"><span class="glyphicon glyphicon-question-sign"></span> 联系方式</a></li>
+				</ul>
+			</div>
+			
+		</div>
+	</nav>
+
+	<div id="top" style="width:100%;height:50px"></div>
+
+	<div class="jumbotron myjumbotrom myjumbotrom-mymedia" id="qwe" >
+		<div class="container">
+			<h2 class="h1-mymedia">Bootstrap</h2>
+			<h2 class="h2-mymedia">简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。</h2>
+			<p class="masthead-button-links">
+			    <a class="btn btn-lg btn-primary btn-shadow" href="#" role="button">Bootstrap3中文文档(v3.3.7)</a>
+			</p>
+		</div>
+	</div>
+
+
+
+	<div style="width:100%;background-color: #ffffff">
+		<div class="container" style="height:300px;border:1px red solid;padding-top:50px" id="green"></div>
+	</div>
+	
+		
+	<div style="width:100%;background-color: #f0f0f0">
+		<div class="container" style="height:300px;border:1px red solid;padding-top:50px" id="yellow"></div>
+	</div>
+
+
+	<div style="width:100%;background-color:#ffffff">
+		<div class="container" style="height:300px;border: 1px red solid;padding-top:50px" id="black"></div>
+	</div>
+		
+
+		
+	
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+
+
+<script>
+
+	var navshow=true;
+
+	$("#aaa").scrollspy({
+		target:"#navbar-example"
+	})
+	$('[data-spy="scroll"]').each(function () {
+  		var $spy = $(this).scrollspy('refresh')
+	})
+
+
+
+	$(document).on('scroll',function(){
+		
+		var scrtop=$(document).scrollTop()
+
+		function navtoggle(){
+			if(navshow==true&&scrtop>=300){
+				$("#navbar-example").animate({
+					top:'-50px',
+					opacity:0
+				});
+				navshow=false;
+				}
+			if(navshow==false&&scrtop<300){
+				$("#navbar-example").animate({
+					top:'0px',
+					opacity:1.0
+				});
+				navshow=true;
+			}
+		}
+		navtoggle()
+	})
+
+
+
+</script>
+</html>
